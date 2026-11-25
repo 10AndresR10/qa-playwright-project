@@ -7,4 +7,4 @@ class HomePage:
         self.get_started_link = page.get_by_role("link", name="Get started")
 
     def open(self):
-        self.page.goto("/")
+        self.page.goto("index.htm")
