@@ -175,3 +175,19 @@ The account is selected with `#accountId`. There are four search options, each w
 |---|---|
 | Approved (e.g. amount 100, down payment 10) | Heading **Loan Request Processed**, provider *Wealth Securities Dynamic Loans (WSDL)*, Status **Approved**, **Congratulations, your loan has been approved.**, plus a new account number |
 | Denied (e.g. amount 1,000,000) | Status **Denied**, **We cannot grant a loan in that amount with your available funds.** |
+
+---
+
+## Messages still to confirm
+
+The feature files expect these messages, but they weren't recorded while exploring the site. The scenarios that use them are tagged `@needs_clarification`. Check each one on the live site, then move it to its page's section above, or correct the scenario.
+
+| Page | Situation | Expected message | Scenario |
+|---|---|---|---|
+| Bill Pay | Non-numeric account number | Please enter a valid number. | TC_BILL_07 |
+| Find Transactions | Bad or empty date | Invalid date format | TC_FIND_06, TC_FIND_09 |
+| Find Transactions | Bad or empty transaction ID | Invalid transaction ID | TC_FIND_06 |
+| Account Activity | Account ID that doesn't exist | Could not find account # &lt;id&gt; | TC_SEC_04 |
+| Request Loan | Down payment above the balance | You do not have sufficient funds for the given down payment. | TC_LOAN_06 |
+| Customer Care | Message sent | Thank you &lt;name&gt; / A Customer Care Representative will be contacting you. | TC_PUB_02 |
+| About Us | Page text | ParaBank is a demo site used for demonstration of Parasoft software solutions. | TC_PUB_03 |

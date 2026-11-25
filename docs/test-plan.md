@@ -44,7 +44,7 @@ Build an automated UI regression suite for ParaBank's main customer flows: regis
 - **Locators:** prefer roles and visible text (`get_by_role`, `get_by_text`), then stable `id`/`name` attributes. Avoid XPath and position-based selectors. See [site-reference.md](site-reference.md).
 - **Negative and edge cases:** every feature includes scenarios for invalid input, boundaries (zero, negative, smallest unit, exact balance, one cent over) and unusual input (spaces, accented characters, formatted numbers, double submit). They're prioritized by risk: money movement and access control first.
 - **Waiting:** use Playwright's auto-waiting `expect(...)` assertions, never fixed sleeps. Several pages (Accounts Overview, Open Account, Transfer, Update Profile) load data by AJAX after the page loads.
-- **BDD test cases:** written in Gherkin (Given / When / Then) in [`features/`](../features), one file per area. Each scenario is tagged with its test case ID, priority and, where relevant, `@smoke` or `@known-issue`. The index and conventions are in [test-cases.md](test-cases.md). Each automated test should be traceable to its scenario ID.
+- **BDD test cases:** written in Gherkin (Given / When / Then) in [`features/`](../features), one file per area. Each scenario is tagged with its test case ID, priority and, where relevant, `@smoke` or `@known_issue`. The index and conventions are in [test-cases.md](test-cases.md). Each automated test should be traceable to its scenario ID.
 
 ## 4. Test environment
 
@@ -84,7 +84,7 @@ Build an automated UI regression suite for ParaBank's main customer flows: regis
 
 ## Known issues
 
-Defects found while running the suite. Tag the affected scenarios with `@known-issue` and `@BUG-NN` in the feature files.
+Defects found while running the suite. Tag the affected scenarios with `@known_issue` and `@BUG_NN` in the feature files.
 
 | ID | Area | Observed | Expected | Scenario |
 |---|---|---|---|---|

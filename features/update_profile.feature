@@ -8,11 +8,11 @@ Feature: Update contact info
     Given I am logged in as a new customer
     And I am on the "Update Contact Info" page
 
-  @TC-PROF-01 @medium
+  @TC_PROF_01 @medium
   Scenario: The form shows my current details
     Then the form should be pre-filled with my registration details
 
-  @TC-PROF-02 @high
+  @TC_PROF_02 @high
   Scenario: Update my city
     When I change the city to "Newtown"
     And I click "Update Profile"
@@ -20,7 +20,7 @@ Feature: Update contact info
     And I should see the message "Your updated address and phone number have been added to the system."
     And when I reopen "Update Contact Info" the city should be "Newtown"
 
-  @TC-PROF-03 @medium
+  @TC_PROF_03 @medium
   Scenario: A required field cannot be cleared
     When I clear the first name
     And I click "Update Profile"
@@ -28,7 +28,7 @@ Feature: Update contact info
 
   # ---------- Negative and edge cases ----------
 
-  @TC-PROF-04 @medium @negative
+  @TC_PROF_04 @medium @negative
   Scenario Outline: Invalid contact details are rejected
     When I set the <field> to "<value>"
     And I click "Update Profile"
@@ -37,11 +37,11 @@ Feature: Update contact info
 
     Examples:
       | case               | field      | value       |
-      | spaces only        | first name | "   "       |
+      | spaces only        | first name | <3 spaces>  |
       | letters in zip     | zip code   | ABCDE       |
       | letters in phone   | phone      | not-a-phone |
 
-  @TC-PROF-05 @low @edge
+  @TC_PROF_05 @low @edge
   Scenario: Accented characters are saved correctly
     When I set the first name to "José"
     And I click "Update Profile"

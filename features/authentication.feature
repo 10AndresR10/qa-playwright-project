@@ -7,14 +7,14 @@ Feature: Login and logout
   Background:
     Given I am on the ParaBank home page
 
-  @TC-LOGIN-01 @high @smoke
+  @TC_LOGIN_01 @high @smoke
   Scenario: Login with valid credentials
     Given I am a registered customer named "Test User"
     When I log in with my username and password
     Then I should see the "Accounts Overview" page
     And the left panel should show "Welcome Test User"
 
-  @TC-LOGIN-02 @TC-LOGIN-03 @TC-LOGIN-04 @medium
+  @TC_LOGIN_02 @TC_LOGIN_03 @TC_LOGIN_04 @medium
   Scenario Outline: Login is rejected with invalid credentials
     When I log in with username "<username>" and password "<password>"
     Then I should see the error "<error>"
@@ -25,14 +25,14 @@ Feature: Login and logout
       | unknown username | no_such_user_xyz | any_password   | The username and password could not be verified. |
       | empty fields     |                  |                | Please enter a username and password.             |
 
-  @TC-LOGIN-05 @high @smoke
+  @TC_LOGIN_05 @high @smoke
   Scenario: Logout
     Given I am logged in as a new customer
     When I click "Log Out"
     Then I should see the login form
     And I should not see the "Log Out" link
 
-  @TC-LOGIN-06 @medium
+  @TC_LOGIN_06 @medium
   Scenario: Account pages are not available after logout
     Given I am logged in as a new customer
     And I have logged out
@@ -42,19 +42,19 @@ Feature: Login and logout
 
   # ---------- Negative and edge cases ----------
 
-  @TC-LOGIN-07 @medium @negative
+  @TC_LOGIN_07 @medium @negative
   Scenario: Password is case-sensitive
     Given I am a registered customer with password "Passw0rd!"
     When I log in with my username and password "PASSW0RD!"
     Then I should see the error "The username and password could not be verified."
 
-  @TC-LOGIN-08 @low @edge @needs-clarification
+  @TC_LOGIN_08 @low @edge @needs_clarification
   Scenario: Password with an extra trailing space is rejected
     Given I am a registered customer with password "Passw0rd!"
     When I log in with my username and password "Passw0rd! "
     Then I should see the error "The username and password could not be verified."
 
-  @TC-LOGIN-09 @low @edge
+  @TC_LOGIN_09 @low @edge
   Scenario: Username with leading and trailing spaces
     Given I am a registered customer
     When I log in with my username surrounded by spaces and my password

@@ -4,7 +4,7 @@ Feature: Public pages
   I want to read about the bank and contact customer care
   So that I can get information and help
 
-  @TC-PUB-01 @low
+  @TC_PUB_01 @low
   Scenario: Submitting an empty contact form shows required-field errors
     Given I am on the "Customer Care" page
     When I click "Send to Customer Care"
@@ -14,7 +14,7 @@ Feature: Public pages
       | Phone is required.   |
       | Message is required. |
 
-  @TC-PUB-02 @low
+  @TC_PUB_02 @low @needs_clarification
   Scenario: Send a message to customer care
     Given I am on the "Customer Care" page
     When I fill in my name "Test", a valid email, phone and a message
@@ -23,16 +23,22 @@ Feature: Public pages
     And I should see the message "Thank you Test"
     And I should see the message "A Customer Care Representative will be contacting you."
 
-  @TC-PUB-03 @low
+  @TC_PUB_03 @low @needs_clarification
   Scenario: About Us page
     Given I am on the ParaBank home page
     When I click "About Us"
     Then the page title should be "ParaBank | About Us"
     And I should see the text "ParaBank is a demo site used for demonstration of Parasoft software solutions."
 
+  @TC_PUB_05 @low
+  Scenario: Services page
+    Given I am on the ParaBank home page
+    When I click "Services"
+    Then the page title should be "ParaBank | Services"
+
   # ---------- Negative and edge cases ----------
 
-  @TC-PUB-04 @low @negative
+  @TC_PUB_04 @low @negative
   Scenario Outline: Contact form rejects invalid contact details
     Given I am on the "Customer Care" page
     When I fill in the contact form with a valid name and message
