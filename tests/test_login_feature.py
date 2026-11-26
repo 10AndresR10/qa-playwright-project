@@ -14,3 +14,9 @@ def test_homepage_has_text(page: Page):
     home = HomePage(page)
     home.open()
     expect(page.get_by_text("Customer Login")).to_be_visible()
+
+def test_login_succesfull(page: Page):
+    home = HomePage(page)
+    home.open()
+    page.locator('b:has-text("Username")')
+    page.get_by_role("textbox", name="username")
