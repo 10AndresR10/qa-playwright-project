@@ -15,8 +15,12 @@ def test_homepage_has_text(page: Page):
     home.open()
     expect(page.get_by_text("Customer Login")).to_be_visible()
 
-def test_login_succesfull(page: Page):
+
+def test_login_wrong(page: Page):
     home = HomePage(page)
     home.open()
-    page.locator('b:has-text("Username")')
-    page.get_by_role("textbox", name="username")
+    username = page.locator("input[name='username']")
+    username.fill("Andres")
+    expect(username).to_have_value("Andres")
+    password = page.locator("input[name='password']")
+    password.fill("ABCD1234")
