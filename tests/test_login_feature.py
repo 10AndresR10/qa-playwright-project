@@ -27,3 +27,16 @@ def test_login_successful(page: Page):
     login_button = page.get_by_role("button", name=re.compile("LOG IN", re.IGNORECASE))
     login_button.click()
     expect(page.get_by_text("Welcome", exact=True)).to_be_visible()
+
+
+def test_login_wrong_password(page: Page):
+    home = HomePage(page)
+    home.open()
+    username = page.locator("input[name='username']")
+    username.fill("Andres")
+    password = page.locator("input[name='password']")
+    password.fill("zxy1234")
+    login_button = page.get_by_role("button", name=re.compile("LOG IN", re.IGNORECASE))
+    login_button.click()
+    expect(page.get_by_role("heading", name="Error!")).to_be_visible()
+    expect(page.get_by_text("The username and password could not be verified.", exact=True)).to_be_visible()
